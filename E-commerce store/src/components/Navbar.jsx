@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <>
-
       <nav
-        className="navbar navbar-expand-md bg-white border-bottom shadow-sm py-1 px-5 fixed-top"
+        className="navbar navbar-expand-md bg-white border-bottom shadow-sm py-1 px-2 px-md-5 fixed-top"
         style={{ fontFamily: "'Cairo', sans-serif", zIndex: 1030 }}
       >
-        <div className="container-fluid px-5 justify-content-between justify-content-md-evenly align-items-center gap-3 d-flex w-100 position-relative">
+        <div className="container-fluid px-1 px-md-5 justify-content-between justify-content-md-evenly align-items-center gap-1 gap-md-3 d-flex w-100 position-relative">
 
           <button
             className="navbar-toggler border-0 shadow-none p-0 text-secondary fs-3 order-0"
@@ -42,13 +41,13 @@ function Navbar() {
             </span>
 
             <span
-              className="fw-bold ms-2"
+              className="fw-bold me-1 me-md-2"
               style={{
                 fontSize: "2.3rem",
                 fontStyle: "italic",
                 letterSpacing: "-0.5px",
-                color: "#00b4d8",
-                textShadow: "0px 0px 12px rgba(0, 180, 216, 0.3)",
+                color: "#d97706",
+                textShadow: "0px 0px 12px rgba(217, 119, 6, 0.3)",
               }}
             >
               Khaled
@@ -56,7 +55,7 @@ function Navbar() {
           </Link>
 
           <div className="collapse navbar-collapse flex-grow-1 justify-content-md-center order-3 order-md-1" id="khaledStoreNavbar">
-            <div className="w-100 d-md-flex justify-content-md-center align-items-center py-2 py-md-0 mt-2 mt-md-0  border-md-0">
+            <div className="w-100 d-md-flex justify-content-md-center align-items-center py-2 py-md-0 mt-2 mt-md-0 border-md-0">
 
               <div className="flex-grow-1 mx-md-5 mb-3 mb-md-0" style={{ maxWidth: "400px" }}>
                 <div
@@ -89,7 +88,7 @@ function Navbar() {
             </div>
           </div>
 
-          <div className="d-flex align-items-center gap-4 order-2 order-md-2">
+          <div className="d-flex align-items-center gap-2 gap-md-4 order-2 order-md-2">
             <button
               className="btn p-0 border-0 text-secondary d-none d-md-block"
               style={{ fontSize: "20px" }}
