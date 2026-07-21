@@ -97,7 +97,7 @@ const products = [
     category: "ديكور المنزل",
     price: 1200,
     rating: 3.6,
-    image: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=500&q=80",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH_Ycj89He9xVzjIqEQMTBh8iSQNrUzhaiWLMVaD0JyoU5cJGj4a68gxV7&s=10",
     Stock: true
   },
   {

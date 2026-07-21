@@ -6,7 +6,7 @@ import products from './Product'
 
 function Home() {
   return (
-    <div style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", direction: 'rtl' }} className="container-fluid pt-5">
+    <div style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", direction: 'rtl' }} className="container-fluid pt-5 mb-5 pb-2">
 
       <div className="row pt-5">
         <div className="col-md-12">
