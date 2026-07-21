@@ -4,10 +4,10 @@ function Navbar() {
   return (
     <>
       <nav
-        className="navbar navbar-expand-md bg-white border-bottom shadow-sm py-1 px-2 px-md-5 fixed-top"
+        className="navbar navbar-expand-md bg-white border-bottom shadow-sm py-1 fixed-top"
         style={{ fontFamily: "'Cairo', sans-serif", zIndex: 1030 }}
       >
-        <div className="container-fluid px-1 px-md-5 justify-content-between justify-content-md-evenly align-items-center gap-1 gap-md-3 d-flex w-100 position-relative">
+        <div className="container-fluid px-1 px-md-4 justify-content-between justify-content-md-evenly align-items-center gap-1 gap-md-3 d-flex w-100 position-relative">
 
           <button
             className="navbar-toggler border-0 shadow-none p-0 text-secondary fs-3 order-0"
