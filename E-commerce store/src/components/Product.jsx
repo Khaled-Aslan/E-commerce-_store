@@ -6,8 +6,8 @@ const products = [
     price: 450,
     rating: 3.7,
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80",
-    Stock: true,
-    tag: "آخر قطعة"
+    Stock: 7
+    
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const products = [
     price: 550,
     rating: 3.9,
     image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80",
-    Stock: true
+    Stock: 12
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const products = [
     price: 1300,
     rating: 2.6,
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80",
-    Stock: true
+    Stock: 3
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const products = [
     price: 900,
     rating: 4.8,
     image: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=500&q=80",
-    Stock: true
+    Stock: 9
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const products = [
     price: 3300,
     rating: 4.7,
     image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&q=80",
-    Stock: true
+    Stock: 18
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const products = [
     price: 700,
     rating: 1.8,
     image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&q=80",
-    Stock: true
+    Stock: 1
   },
   {
     id: 7,
@@ -61,8 +61,7 @@ const products = [
     price: 5500,
     rating: 3.2,
     image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80",
-    Stock: true,
-    tag: "آخر قطعة"
+    Stock: 14
   },
   {
     id: 8,
@@ -71,7 +70,7 @@ const products = [
     price: 800,
     rating: 4.5,
     image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80",
-    Stock: false
+    Stock: 0
   },
   {
     id: 9,
@@ -80,7 +79,7 @@ const products = [
     price: 250,
     rating: 3.9,
     image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&q=80",
-    Stock: true
+    Stock: 20
   },
   {
     id: 10,
@@ -89,7 +88,7 @@ const products = [
     price: 350,
     rating: 4.0,
     image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&q=80",
-    Stock: true
+    Stock: 5
   },
   {
     id: 11,
@@ -98,7 +97,7 @@ const products = [
     price: 1200,
     rating: 3.6,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH_Ycj89He9xVzjIqEQMTBh8iSQNrUzhaiWLMVaD0JyoU5cJGj4a68gxV7&s=10",
-    Stock: true
+    Stock: 8
   },
   {
     id: 12,
@@ -107,8 +106,7 @@ const products = [
     price: 1800,
     rating: 3.9,
     image: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=500&q=80",
-    Stock: true,
-    tag: "آخر قطعة"
+    Stock: 15
   }
 ];
 

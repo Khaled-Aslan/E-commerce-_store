@@ -24,3 +24,12 @@ body {
 .hover-card:hover .card-image {
   transform: scale(1.04);
 }
+
+.hoverProMax {
+  color: gray;
+  transition: 0.2s ease !important;
+}
+
+.hoverProMax:hover {
+  color: #065f46;
+}
