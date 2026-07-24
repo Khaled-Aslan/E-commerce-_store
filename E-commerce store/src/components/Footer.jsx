@@ -5,7 +5,7 @@ function Footer() {
 
   return (
 
-    <footer className="bg-white text-dark py-4 mt-auto" style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}>
+    <footer className="bg-white text-dark py-4 mt-auto">
       <div className="container text-center">
         <p>Khaled Store للتسوق الإلكتروني</p>
         <p className="mb-0"> جميع الحقوق محفوظة. &copy; {new Date().getFullYear()}</p>

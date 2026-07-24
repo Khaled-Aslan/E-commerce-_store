@@ -1,24 +1,66 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Home from './components/Home'
 import CheckOut from './components/CheckOut'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import ProductDetail from './components/ProductDetail' // المكون الديناميكي الجديد
+import ProductDetail from './components/ProductDetail'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
+  const [cartItems, setCartItems] = useState([])
+
+  const addToCart = (product, quantity = 1) => {
+    setCartItems(prevItems => {
+      const existing = prevItems.find(item => String(item.id) === String(product.id))
+      if (existing) {
+        return prevItems.map(item =>
+          String(item.id) === String(product.id)
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        )
+      }
+      return [...prevItems, { ...product, quantity }]
+    })
+  }
+
+const updateQuantity = (id, amount) => {
+  setCartItems(prev =>
+    prev
+      .map(item => item.id === id ? { ...item, quantity: item.quantity + amount } : item)
+      .filter(item => item.quantity > 0)
+  )
+}
+
+  const removeFromCart = id => {
+    setCartItems(prevItems => prevItems.filter(item => String(item.id) !== String(id)))
+  }
+
+  const clearCart = () => {
+    setCartItems([])
+  }
+
   return (
     <Router>
-      <Navbar />
+      <Navbar cartCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home addToCart={addToCart} />} />
+        <Route
+          path="/CheckOut"
+          element={
+            <CheckOut
+              cartItems={cartItems}
+              updateQuantity={updateQuantity}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
+            />
+          }
+        />
         <Route path="/checkout" element={<CheckOut />} />
-        {/* مسار ديناميكي لكل المنتجات */}
-        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/product/:id" element={<ProductDetail addToCart={addToCart} cartItems={cartItems} updateQuantity={updateQuantity} />} />
       </Routes>
       <Footer />
     </Router>
   )
 }
 
-export default App;
+export default App

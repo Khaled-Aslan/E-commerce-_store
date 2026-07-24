@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ cartCount }) {
   return (
     <>
       <nav
@@ -14,9 +14,6 @@ function Navbar() {
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#khaledStoreNavbar"
-            aria-controls="khaledStoreNavbar"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
           >
             <i className="fa-solid fa-bars"></i>
           </button>
@@ -98,12 +95,20 @@ function Navbar() {
             </button>
 
             <Link
-              to="/cart"
-              className="text-secondary transition-all"
+              to="/CheckOut"
+              className="text-secondary transition-all position-relative"
               style={{ fontSize: "20px" }}
               title="السلة"
             >
               <i className="fa-solid fa-cart-shopping"></i>
+              {cartCount > 0 && (
+                <span
+                  className="position-absolute top-0 start-0 translate-middle badge rounded-circle bg-danger"
+                  style={{ fontSize: "0.65rem", padding: "0.25em 0.45em" }}
+                >
+                  {cartCount}
+                </span>
+              )}
             </Link>
           </div>
 

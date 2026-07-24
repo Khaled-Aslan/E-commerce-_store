@@ -4,17 +4,17 @@ const products = [
     name: "حذاء رياضي Nike Air Max",
     category: "أزياء",
     price: 450,
-    rating: 3.7,
+    rating: 4.7,
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80",
     Stock: 7
-    
+
   },
   {
     id: 2,
     name: "حقيبة جلد فاخرة",
     category: "أزياء",
     price: 550,
-    rating: 3.9,
+    rating: 4.9,
     image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80",
     Stock: 12
   },
@@ -23,7 +23,7 @@ const products = [
     name: "ساعة ذكية Galaxy Watch 6",
     category: "إلكترونيات",
     price: 1300,
-    rating: 2.6,
+    rating: 4.6,
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80",
     Stock: 3
   },
@@ -41,7 +41,7 @@ const products = [
     name: "كاميرا Sony Alpha A7 IV",
     category: "إلكترونيات",
     price: 3300,
-    rating: 4.7,
+    rating: 4.1,
     image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&q=80",
     Stock: 18
   },
@@ -50,7 +50,7 @@ const products = [
     name: "عطر Dior Sauvage",
     category: "عناية شخصية",
     price: 700,
-    rating: 1.8,
+    rating: 4.2,
     image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&q=80",
     Stock: 1
   },
@@ -59,7 +59,7 @@ const products = [
     name: "لابتوب MacBook Air M3",
     category: "إلكترونيات",
     price: 5500,
-    rating: 3.2,
+    rating: 4.5,
     image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&q=80",
     Stock: 14
   },
@@ -77,7 +77,7 @@ const products = [
     name: "مصباح طاولة ذكي LED",
     category: "ديكور المنزل",
     price: 250,
-    rating: 3.9,
+    rating: 4.9,
     image: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&q=80",
     Stock: 20
   },
@@ -86,7 +86,7 @@ const products = [
     name: "نظارة شمسية Ray-Ban",
     category: "أزياء",
     price: 350,
-    rating: 4.0,
+    rating: 4.4,
     image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&q=80",
     Stock: 5
   },
@@ -95,7 +95,7 @@ const products = [
     name: "مجموعة أواني طبخ",
     category: "ديكور المنزل",
     price: 1200,
-    rating: 3.6,
+    rating: 4.6,
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH_Ycj89He9xVzjIqEQMTBh8iSQNrUzhaiWLMVaD0JyoU5cJGj4a68gxV7&s=10",
     Stock: 8
   },
@@ -104,7 +104,7 @@ const products = [
     name: "سجادة تركية يدوية",
     category: "ديكور المنزل",
     price: 1800,
-    rating: 3.9,
+    rating: 4.9,
     image: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=500&q=80",
     Stock: 15
   }
