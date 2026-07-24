@@ -3,7 +3,7 @@ import '../index.css'
 import products from './Product'
 import { Link } from 'react-router-dom'
 
-function Home({ addToCart }) {
+function Home({ addToCart, cartItems = [] }) {
   return (
     <div className="container-fluid pt-5 mb-5 pb-2">
 
@@ -88,93 +88,99 @@ function Home({ addToCart }) {
       <h3 className="fw-bold mt-5 mb-4 " style={{ color: "#145346" }}>أحدث المنتجات</h3>
 
       <div className="row g-4 mb-5 text-end">
-        {products.map((product) => (
-          <div key={product.id} className="col-6 col-md-4 col-lg-3">
+        {products.map((product) => {
+          const cartItem = cartItems.find((item) => String(item.id) === String(product.id));
+          const currentQtyInCart = cartItem ? cartItem.quantity : 0;
+          const isMaxStockReached = currentQtyInCart >= product.Stock;
 
-            <div className="card hover-card h-100 position-relative" style={{ borderRadius: "16px", overflow: 'hidden' }}>
+          return (
+            <div key={product.id} className="col-6 col-md-4 col-lg-3">
 
-              {product.Stock > 0 && product.Stock <= 5 && (
-                <span className="position-absolute badge" style={{
-                  top: "12px",
-                  left: "12px",
-                  backgroundColor: "rgb(217, 119, 6)",
-                  color: "#fff",
-                  zIndex: 2,
-                  borderRadius: "6px",
-                  padding: "6px 10px",
-                  fontSize: "0.75rem"
-                }}>
-                  اخر {product.Stock} قطع
-                </span>
-              )}
+              <div className="card hover-card h-100 position-relative" style={{ borderRadius: "16px", overflow: 'hidden' }}>
 
-              <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
-                <div style={{ backgroundColor: "#f8f9fa", height: "220px", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
-                  <img
-                    src={product.image}
-                    className="img-fluid card-image"
-                    style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "cover", width: "100%", height: "100%" }}
-                  />
+                {product.Stock > 0 && product.Stock <= 5 && (
+                  <span className="position-absolute badge" style={{
+                    top: "12px",
+                    left: "12px",
+                    backgroundColor: "rgb(217, 119, 6)",
+                    color: "#fff",
+                    zIndex: 2,
+                    borderRadius: "6px",
+                    padding: "6px 10px",
+                    fontSize: "0.75rem"
+                  }}>
+                    اخر {product.Stock} قطع
+                  </span>
+                )}
 
-                  {product.Stock === 0 && (
-                    <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style={{ backgroundColor: "rgba(0,0,0,0.4)" }}>
-                      <span className="badge bg-danger px-3 py-2 fs-6" style={{ borderRadius: "8px" }}>نفد المخزون</span>
-                    </div>
-                  )}
-                </div>
-              </Link>
-
-              <div className="card-body d-flex flex-column justify-content-between p-3">
                 <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
-                  <div>
-                    <span className="text-muted d-block mb-1" style={{ fontSize: "0.75rem" }}>{product.category}</span>
+                  <div style={{ backgroundColor: "#f8f9fa", height: "220px", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
+                    <img
+                      src={product.image}
+                      className="img-fluid card-image"
+                      style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "cover", width: "100%", height: "100%" }}
+                    />
 
-                    <h6 className="fw-bold mb-2" style={{ fontSize: "0.95rem", color: "#333", minHeight: "40px" }}>{product.name}</h6>
-
-                    <div className="d-flex align-items-center mb-3">
-                      <span className="text-muted me-2" style={{ fontSize: "0.8rem" }}>({product.rating})</span>
-
-                      <div className="text-warning" style={{ fontSize: "0.8rem" }}>
-                        <i className="fas fa-star-half-alt ms-1"></i>
-                        <i className="fas fa-star ms-1"></i>
-                        <i className="fas fa-star ms-1"></i>
-                        <i className="fas fa-star ms-1"></i>
-                        <i className="fas fa-star ms-1"></i>
+                    {(product.Stock === 0 || isMaxStockReached) && (
+                      <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style={{ backgroundColor: "rgba(0,0,0,0.4)" }}>
+                        <span className="badge bg-danger px-3 py-2 fs-6" style={{ borderRadius: "8px" }}>نفد المخزون</span>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </Link>
 
-                <div className="d-flex align-items-center justify-content-between pt-2 border-top">
-                  <span className="fw-bold fs-5" style={{ color: "#145346" }}>
-                    {product.price} <span style={{ fontSize: "1.0rem" }}>USD</span>
-                  </span>
+                <div className="card-body d-flex flex-column justify-content-between p-3">
+                  <Link to={`/product/${product.id}`} style={{ textDecoration: 'none' }}>
+                    <div>
+                      <span className="text-muted d-block mb-1" style={{ fontSize: "0.75rem" }}>{product.category}</span>
 
-                  {product.Stock > 0 ? (
-                    <button
-                      onClick={() => addToCart(product)}
-                      className="btn d-flex align-items-center justify-content-center px-2 py-1"
-                      style={{
-                        backgroundColor: "rgb(6, 95, 70)",
-                        color: "#fff",
-                        borderRadius: "8px",
-                        fontSize: "0.85rem"
-                      }}
-                    >
-                      + إضافة
-                    </button>
-                  ) : (
-                    <button className="btn btn-light disabled px-2 py-1" style={{ borderRadius: "8px", fontSize: "0.85rem" }}>
-                      نفذ المحزون
-                    </button>
-                  )}
+                      <h6 className="fw-bold mb-2" style={{ fontSize: "0.95rem", color: "#333", minHeight: "40px" }}>{product.name}</h6>
+
+                      <div className="d-flex align-items-center mb-3">
+                        <span className="text-muted me-2" style={{ fontSize: "0.8rem" }}>({product.rating})</span>
+
+                        <div className="text-warning" style={{ fontSize: "0.8rem" }}>
+                          <i className="fas fa-star-half-alt ms-1"></i>
+                          <i className="fas fa-star ms-1"></i>
+                          <i className="fas fa-star ms-1"></i>
+                          <i className="fas fa-star ms-1"></i>
+                          <i className="fas fa-star ms-1"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <div className="d-flex align-items-center justify-content-between pt-2 border-top">
+                    <span className="fw-bold fs-5" style={{ color: "#145346" }}>
+                      {product.price} <span style={{ fontSize: "1.0rem" }}>USD</span>
+                    </span>
+
+                    {product.Stock > 0 && !isMaxStockReached ? (
+                      <button
+                        onClick={() => addToCart(product)}
+                        className="btn d-flex align-items-center justify-content-center px-2 py-1"
+                        style={{
+                          backgroundColor: "rgb(6, 95, 70)",
+                          color: "#fff",
+                          borderRadius: "8px",
+                          fontSize: "0.85rem"
+                        }}
+                      >
+                        + إضافة
+                      </button>
+                    ) : (
+                      <button className="btn btn-light disabled px-2 py-1" style={{ borderRadius: "8px", fontSize: "0.85rem" }}>
+                        نفد المخزون
+                      </button>
+                    )}
+                  </div>
+
                 </div>
-
               </div>
-            </div>
 
-          </div>
-        ))}
+            </div>
+          );
+        })}
       </div>
 
     </div>

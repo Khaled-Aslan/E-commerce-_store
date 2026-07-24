@@ -12,6 +12,12 @@ function App() {
   const addToCart = (product, quantity = 1) => {
     setCartItems(prevItems => {
       const existing = prevItems.find(item => String(item.id) === String(product.id))
+      const currentQty = existing ? existing.quantity : 0
+
+      if (currentQty + quantity > product.Stock) {
+        return prevItems
+      }
+
       if (existing) {
         return prevItems.map(item =>
           String(item.id) === String(product.id)
@@ -23,13 +29,22 @@ function App() {
     })
   }
 
-const updateQuantity = (id, amount) => {
-  setCartItems(prev =>
-    prev
-      .map(item => item.id === id ? { ...item, quantity: item.quantity + amount } : item)
-      .filter(item => item.quantity > 0)
-  )
-}
+  const updateQuantity = (id, amount) => {
+    setCartItems(prev =>
+      prev
+        .map(item => {
+          if (String(item.id) === String(id)) {
+            const newQty = item.quantity + amount
+            if (amount > 0 && newQty > item.Stock) {
+              return item
+            }
+            return { ...item, quantity: newQty }
+          }
+          return item
+        })
+        .filter(item => item.quantity > 0)
+    )
+  }
 
   const removeFromCart = id => {
     setCartItems(prevItems => prevItems.filter(item => String(item.id) !== String(id)))
@@ -43,7 +58,7 @@ const updateQuantity = (id, amount) => {
     <Router>
       <Navbar cartCount={cartItems.reduce((acc, item) => acc + item.quantity, 0)} />
       <Routes>
-        <Route path="/" element={<Home addToCart={addToCart} />} />
+        <Route path="/" element={<Home addToCart={addToCart} cartItems={cartItems} />} />
         <Route
           path="/CheckOut"
           element={
